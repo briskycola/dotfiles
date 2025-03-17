@@ -1,0 +1,14 @@
+#
+# ~/.zshrc
+#
+
+# Disable zsh history
+unset HISTFILE
+
+# Aliases
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+fi
+
+# PS1
+PS1="%{%F{47}%}%n%{%F{156}%}@%{%F{227}%}%m %{%F{231}%}%1~ %{%f%}%% "

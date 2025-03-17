@@ -1,0 +1,11 @@
+#
+# ~/.bash_aliases
+#
+
+# Aliases
+alias ls='ls -p --color=auto'
+alias ll='ls -lhp --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip --color'
+alias open='xdg-open'
+alias zed='zeditor'
