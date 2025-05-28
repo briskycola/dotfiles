@@ -10,5 +10,14 @@ if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
+# Make keybinds (ex: Alt+Backspace) behave
+# the way they do in bash
+autoload -Uz select-word-style
+select-word-style bash
+
 # PS1
 PS1="%{%F{47}%}%n%{%F{156}%}@%{%F{227}%}%m %{%F{231}%}%1~ %{%f%}%% "
+
+# Load plugins
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
