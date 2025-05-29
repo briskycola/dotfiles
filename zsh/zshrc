@@ -19,5 +19,5 @@ select-word-style bash
 PS1="%{%F{47}%}%n%{%F{156}%}@%{%F{227}%}%m %{%F{231}%}%1~ %{%f%}%% "
 
 # Load plugins
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
