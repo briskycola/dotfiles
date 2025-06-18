@@ -9,28 +9,44 @@ echo "can use my terminal settings and aliases." ; echo
 echo "Note: This will override your current settings"
 echo "for bash and zsh." ; echo
 
-# Prompt user before proceeding
+# Prompt the user if they want to continue
 read -p "Do you want to continue? Y/N: " USER_CHOICE
+case "$USER_CHOICE" in
+    [Yy])
+    echo "Copying files."
+    ;;
 
-if  [ $USER_CHOICE = 'y' ] || [ $USER_CHOICE = 'Y' ]; then
-    # Copy bash files
-    cat bash/bashrc         > ~/.bashrc
-    cat bash/bash_aliases   > ~/.bash_aliases
-    cat bash/bash_profile   > ~/.bash_profile
-
-    # Copy zsh files
-    cat zsh/zshrc           > ~/.zshrc
-    cat zsh/zsh_aliases     > ~/.zsh_aliases
-
-    # Copy the rest of the config files into ~/.config/
-    cp -rf config/* ~/.config/*
-
-    echo ; echo "The dotfiles are now applied."
-    echo "Please close and reopen your terminal for the changes to be applied."
-elif [ $USER_CHOICE = 'n' ] || [ $USER_CHOICE = 'N' ]; then
+    [Nn])
     echo "Exiting."
     exit 0
-else
-    echo "You must select Y/N"
+    ;;
+
+    *)
+    echo "You must select Y or N."
     exit 1
-fi
+esac
+
+# Copy bash configuration
+cp bash/bashrc       ~/.bashrc
+cp bash/bash_aliases ~/.bash_aliases
+cp bash/bash_profile ~/.bash_profile
+
+# Copy zsh configuration
+cp zsh/zshrc       ~/.zshrc
+cp zsh/zsh_aliases ~/.zsh_aliases
+
+# Copy the rest of the config files
+cp -r config/* ~/.config/*
+
+# Check the user's current shell
+case "$SHELL" in
+    */bin/bash*)
+    source ~/.bashrc
+    ;;
+
+    */bin/zsh*)
+    source ~/.zshrc
+    ;;
+esac
+
+echo "The dotfiles are now applied."
