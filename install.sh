@@ -41,11 +41,11 @@ cp -r config/* ~/.config/*
 # Check the user's current shell
 case "$SHELL" in
     */bin/bash*)
-    source ~/.bashrc
+    exec bash
     ;;
 
     */bin/zsh*)
-    source ~/.zshrc
+    exec zsh
     ;;
 esac
 
