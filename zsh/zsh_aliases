@@ -6,5 +6,5 @@
 alias ls='ls -p --color=auto'
 alias ll='ls -lhp --color=auto'
 alias grep='grep --color=auto'
-alias ip='ip --color'
+alias ip='ip -c'
 alias open='xdg-open'
